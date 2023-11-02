@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,11 +77,28 @@ WSGI_APPLICATION = 'neXus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': BASE_DIR / 'postgres',
+#         'USER': 'test_db_xcxe_user',
+#         'PASSWORD': 'e0dISiN77AF4CcybA79oeW7KP1xY1dwL',
+#         'HOST': 'dpg-cl1uua2l7jac73bo52qg-a',
+#         'PORT': '5432'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://test_db_xcxe_user:e0dISiN77AF4CcybA79oeW7KP1xY1dwL@dpg-cl1uua2l7jac73bo52qg-a.oregon-postgres.render.com/test_db_xcxe',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
