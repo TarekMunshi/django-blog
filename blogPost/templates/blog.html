@@ -1,0 +1,20 @@
+{% extends "master.html" %} 
+<>{% block title %} Blogs {% endblock %}</>
+
+<>
+  {% block content %}
+  <h1>Blog Page</h1>
+<div>
+  {% for x in blogList %}
+   <h1>{{x.authorName}}</h1>
+   <a href="{{ x.id }}">
+       <p>{{x.title}}</p>
+   </a>
+  {% endfor %}
+</div>
+  <h3>Home</h3>
+
+  <p>Check out all our <a href="">Blog</a></p>
+
+  {% endblock %}
+</>

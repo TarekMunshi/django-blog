@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}" />
+  </head>
+  <body>
+    {% include "navbar.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+    <div>{% block content %} {% endblock %}</div>
+    {% include 'footer.html' %}
+  </body>
+</html>
